@@ -6,14 +6,14 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * This class provides the service of converting country codes to their names.
  */
 public class CountryCodeConverter {
 
-    // TODO Task: pick appropriate instance variable(s) to store the data necessary for this class
+    public static final Integer THREE = 3;
+
     private final HashMap<String, String> countryCodes = new HashMap<>();
     /**
      * Default constructor which will load the country codes from "country-codes.txt"
@@ -43,7 +43,7 @@ public class CountryCodeConverter {
                     continue;
                 }
                 String[] parts = line.split("\t");
-                if (parts.length >= 3) {
+                if (parts.length >= THREE) {
                     String countryName = parts[0];
                     String alpha3Code = parts[2];
                     countryCodes.put(alpha3Code.toLowerCase(), countryName);
